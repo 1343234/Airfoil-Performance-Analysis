@@ -1,0 +1,11 @@
+.venv/
+
+build/
+dist/
+*.spec
+
+
+__pycache__/
+
+#matlab files
+*.asv

@@ -1,13 +1,25 @@
 # Airfoil-Performance-Analysis
 
-The Python script generates a visualisation of the airfoil's performance characteristics as a function of velocity from 0 m/s to 100 m/s and also provides its aerodynamic performance at specific velocities from user input.
+This project has both a Python and a MATLAB version to generate a graph of a specifc modeled airfoil's aerodynamic performance characteristics of velocities from 0 m/s to 100 m/s. It also includes its performance at specific velocities from user input. Both versions outputs the same result.
 
-This project is provided as a standalone executable file (naca_2412_airfoil_performance.exe) for Windows, so no installation of Python or any libraries is required. 
+### Windows Executable (`.exe`)
+First version is a independent executable file (naca_2412_airfoil_performance.exe) for Windows. 
+
+* Download and run the `naca_2412_airfoil_performance.exe` file.
+* A stacked plot will be generated and saved as `performance_curves_stacked.png` which displays the airfoil's aerodynamic performance across 0 m/s to 100 m/s.
+*  Afterwards, the command-line window will prompt the user for any specific velocity to output results for that single point.
+
+### MATLAB Script (`.m`)
+This version is a MATLAB script.
+
+* Download and run the `main.m` file in MATLAB.
+* The script will generate and save a stacked plot (`performance_curves_stacked_MATLAB.png`). Note that this is identical to the plot generated from the python script.
+* Afterwards, the command window will prompt the user to enter any specific velocity to output results for that single point.
 
 
 ## Simulation Parameters
 
-The Solidowrks flow simulation analysis was configured with the following parameters to simulate realistic conditions.
+The Solidowrks flow simulation analysis was run with the following parameters:
 
 * **Airfoil:** NACA 2412
 * **Wing Span:** 3 m
@@ -21,7 +33,7 @@ The Solidowrks flow simulation analysis was configured with the following parame
 
 ## Equations used:
 
-The Python model uses the following standard aerodynamic equations to calculate performance:
+The Python script uses the following  aerodynamic equations:
 
 #### Coefficient of Lift and Lift Force:
 $$
@@ -48,28 +60,18 @@ Where:
 * **$A$**: Reference Area (m²)
 * **$P$**: Power (Watts)
 
-## Analysis Procedure and Outcome
+## Method of Analysis 
 
-Using the airfoil coordiantes, it was fist modeled on solidworks. A solidworks flow simulation was then performed to determine the airfoil's lift and drag (data can be found in Solidworks_cdf_data.xlsx) and then its aerodynamic coefficients ($C_L$ and $C_D$) under its specific conditions.
+Using the airfoil coordiantes, the airfoil was fist modeled on solidworks. A solidworks flow simulation at the specefic conditions was then performed to determine the airfoil's lift and drag (data can be found in Solidworks_cdf_data.xlsx) and then its aerodynamic coefficients ($C_L$ and $C_D$) was calcualted using the data.
 
-These coefficients are then used as inputs for the Python script. The script implements the standard lift, drag, and power equations to calculate the airfoil's performance across a continuous range of velocities.
+These coefficients are then used for the Python script. The script uses the equations to output lift, drag, and power.
 
-The final outcome is a visualization of plots, `performance_curves_stacked.png`, which plots three performance metrics:
-* **Lift Force vs. Velocity:** Shows how the airfoil's lifting capability increases with speed.
-* **Drag Force vs. Velocity:** Shows how aerodynamic resistance increases with speed.
-* **Power vs. Velocity:** Translates the drag force into the energy required to overcome it, providing a direct measure of the airfoil's efficiency.
+The final outcome, `performance_curves_stacked.png`, plots:
+* **Lift Force vs. Velocity** 
+* **Drag Force vs. Velocity** 
+* **Power vs. Velocity** 
 
-The executable program is created with PyInstaller.
-
-## Installation
-
-* Download the naca_2412_airfoil_performance.exe file from this GitHub repository.
-
-* Run the application by double-clicking the .exe file.
-
-* Command-line window will appear, and the script will execute in 5 to 10 seconds. The final performance_curves_stacked.png plot will be saved in the same folder where the executable was ran.
-
-
+The executable program was made with PyInstaller.
 
 **Simulation Software used**: SolidWorks Flow Simulation
 
